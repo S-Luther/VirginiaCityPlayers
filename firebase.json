@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "public",
+    "Site": "epicgamer69",
     "ignore": [
       "firebase.json",
       "**/.*",
