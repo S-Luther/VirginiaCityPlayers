@@ -1,0 +1,22 @@
+{
+  "name": "virginiacityplayers",
+  "version": "1.0.0",
+  "description": "Virginia City Players Site: for entering ticket data and assigning seats to ultimately print tickets at the box office.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Quackbar/VirginiaCityPlayers.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Quackbar/VirginiaCityPlayers/issues"
+  },
+  "homepage": "https://github.com/Quackbar/VirginiaCityPlayers#readme",
+  "devDependencies": {
+    "jasmine": "^3.6.4"
+  }
+}
