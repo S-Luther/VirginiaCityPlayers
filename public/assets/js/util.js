@@ -5,7 +5,7 @@
 	 * @return {jQuery} jQuery object.
 	 */
 	$.fn.navList = function() {
-
+		
 		var	$this = $(this);
 			$a = $this.find('a'),
 			b = [];
