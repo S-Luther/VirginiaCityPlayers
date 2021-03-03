@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>List of Shows</title>
+		<title>New Show</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -33,8 +33,7 @@
 					<ul>
 						<li><a href="index.html">Home</a></li>
 						<li><a href="generic.html">Generic</a></li>
-						<li><a href="elements.html">Elements</a></li>
-                        <li><a href="test.html" class="active">Test Page</a></li>
+						<li><a href="showsList.html" class="active">Shows</a></li>
 						<li><a href="newTicket.html">Ticket List</a></li>
 					</ul>
 				</nav>
@@ -53,9 +52,12 @@
 								<!--Adding a new ticket-->
                                 <form id="add-show-form">
                                     <input type="text" name="showName" placeholder="Name of show">
+									<input type="date" name="showDate" placeholder="Date of show">
 									<button >Create New Show</button>
 								</form>
-                                <ul id="show-list"></ul>
+                                <ul id="show-list">
+
+								</ul>
 
 
 
@@ -63,7 +65,7 @@
 
 
                             </section>
-                            <ul id="Userlist"></ul>
+                            
 
 
 						</div>
