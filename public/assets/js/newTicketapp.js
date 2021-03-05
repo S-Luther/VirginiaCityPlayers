@@ -42,7 +42,7 @@ form.addEventListener('submit', (e) => {
 db.collection('test').orderBy('firstName').onSnapshot(snapshot => {
     let changes = snapshot.docChanges();
     changes.forEach(change => {
-        console.log(change.doc.data());
+        // console.log(change.doc.data());
         if(change.type == 'added'){
             renderTicketList(change.doc);
         }else if (change.type == 'removed'){

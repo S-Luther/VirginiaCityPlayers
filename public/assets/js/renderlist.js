@@ -100,7 +100,11 @@ function renderTicketList(doc){
 
 }
 
-module.exports = {
-    renderTicketList: renderTicketList,
-    renderShowList: renderShowList
+try {
+    module.exports = {
+        renderTicketList: renderTicketList,
+        renderShowList: renderShowList
+    }
+} catch (error) {
+    console.log("Not in test env")
 }
