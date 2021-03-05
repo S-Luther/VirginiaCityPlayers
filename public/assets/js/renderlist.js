@@ -1,5 +1,6 @@
-function renderShowList(doc){
 
+
+function renderShowList(doc){
     let li, showName, showDate, editTickets
     try {
          li = document.createElement('li');
@@ -8,9 +9,11 @@ function renderShowList(doc){
          editTickets = document.createElement('spanners');  
     li.setAttribute('data-id', doc.id);
 
-    } catch (error) {
+    } catch (e) {
         console.log("Could be testing")
-        return true
+        if (e instanceof ReferenceError) {
+            return true
+        }
         
     }
 
@@ -55,9 +58,11 @@ function renderTicketList(doc){
          cross       = document.createElement('spanner');
          extraInfo   = document.createElement('div');
          li.setAttribute('data-id', doc.id);
-   } catch (error) {
+   } catch (e) {
        console.log("Could be testing")
-       return true
+       if (e instanceof ReferenceError) {
+        return true
+    }
    }
 
     
