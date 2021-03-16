@@ -10,7 +10,7 @@ function toggleSignIn() {
         
     }
     else {
-        localStorage.setItem("current_uid", null);
+        localStorage.setItem("loggedin", false);
         firebase.auth().signOut();
     }
     document.getElementById('quickstart-sign-in').disabled = true;
@@ -38,7 +38,7 @@ function writeUserData(userId, name, email, imageUrl) {
                     email: email,
                     profile_picture : imageUrl
                 });
-            
+                localStorage.setItem("loggedin", true);
 
         }
     });
@@ -54,6 +54,10 @@ function writeUserData(userId, name, email, imageUrl) {
 *    the auth redirect flow. It is where you can get the OAuth access token from the IDP.
 */
 function initApp() {
+
+    if(localStorage.getItem("loggedin")){
+        modal.style.display = "none";
+    }
     
     firebase.auth().getRedirectResult().then(function(result) {
     var user = result.user;
@@ -121,9 +125,6 @@ function initApp() {
                     alert("Please Sign In");
                 }
               }
-
-            localStorage.setItem("userMarkers", null);
-            localStorage.setItem("current_uid", null);
             document.getElementById('quickstart-sign-in').textContent = 'Sign in with Google';
         }
         document.getElementById('quickstart-sign-in').disabled = false;
