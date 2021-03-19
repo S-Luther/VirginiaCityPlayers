@@ -35,7 +35,8 @@ function renderShowList(doc){
             let showId = e.target.parentElement.getAttribute('data-id');
 
             var newWindow = window.open("newTicket.html");
-            newWindow.newShowid = showId;
+            newWindow.newshowId = showId;
+
         });
 }
 
@@ -57,6 +58,7 @@ function renderTicketList(doc){
          cross       = document.createElement('spanner');
          extraInfo   = document.createElement('div');
          li.setAttribute('data-id', doc.id);
+
     } catch (e) {
         console.log("Could be testing")
         if (e instanceof ReferenceError) {

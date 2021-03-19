@@ -3,7 +3,7 @@ const db = firebase.firestore();
 const ticketList = document.querySelector('#ticket-list');
 const form = document.querySelector('#add-ticket-form');
 
-var newshowId = showId;
+var newshowId;
 
 
 
