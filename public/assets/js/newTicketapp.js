@@ -5,6 +5,7 @@ const form = document.querySelector('#add-ticket-form');
 
 
 
+<<<<<<< Updated upstream
 
 // db.collection('test').orderBy('firstName').get().then((snapshot) => {
 //     snapshot.docs.forEach(doc => {
@@ -14,6 +15,8 @@ const form = document.querySelector('#add-ticket-form');
 
 // });
 
+=======
+>>>>>>> Stashed changes
 //saving data
 form.addEventListener('submit', (e) => {
     e.preventDefault();
