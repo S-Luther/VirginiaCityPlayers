@@ -7,14 +7,6 @@ var newshowId = showId;
 
 
 
-// db.collection('test').orderBy('firstName').get().then((snapshot) => {
-//     snapshot.docs.forEach(doc => {
-//         renderList(doc);
-
-//     });
-
-// });
-
 //saving data
 form.addEventListener('submit', (e) => {
     e.preventDefault();
