@@ -6,7 +6,6 @@ const form = document.querySelector('#add-ticket-form');
 var newshowId = showId;
 
 
-<<<<<<< Updated upstream
 
 // db.collection('test').orderBy('firstName').get().then((snapshot) => {
 //     snapshot.docs.forEach(doc => {
@@ -16,8 +15,6 @@ var newshowId = showId;
 
 // });
 
-=======
->>>>>>> Stashed changes
 //saving data
 form.addEventListener('submit', (e) => {
     e.preventDefault();

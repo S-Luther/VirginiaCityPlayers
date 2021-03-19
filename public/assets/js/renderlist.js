@@ -9,7 +9,13 @@ function renderShowList(doc){
          editTickets = document.createElement('spanners');  
         li.setAttribute('data-id', doc.id);
 
-
+    } catch (e) {
+        console.log("Could be testing")
+        if (e instanceof ReferenceError) {
+            return true
+        }
+        
+    }
 
 
         showName.textContent = doc.data().showName;
@@ -31,15 +37,6 @@ function renderShowList(doc){
             var newWindow = window.open("newTicket.html");
             newWindow.newShowid = showId;
         });
-
-    } catch (e) {
-        console.log("Could be testing")
-        if (e instanceof ReferenceError) {
-            return true
-        }
-        
-    }
-
 }
 
 
@@ -60,7 +57,12 @@ function renderTicketList(doc){
          cross       = document.createElement('spanner');
          extraInfo   = document.createElement('div');
          li.setAttribute('data-id', doc.id);
-
+    } catch (e) {
+        console.log("Could be testing")
+        if (e instanceof ReferenceError) {
+        return true
+    }
+    }
     
     
         firstName.textContent = doc.data().firstName;
@@ -92,12 +94,7 @@ function renderTicketList(doc){
             db.collection('test').doc(id).delete();
 
         });
-    } catch (e) {
-        console.log("Could be testing")
-        if (e instanceof ReferenceError) {
-        return true
-    }
-    }
+
 
 }
 
