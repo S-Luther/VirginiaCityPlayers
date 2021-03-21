@@ -9,9 +9,11 @@ function renderShowList(doc){
          enterTickets = document.createElement('spanners');  
         li.setAttribute('data-id', doc.id);
 
-    } catch (error) {
+    } catch (e) {
         console.log("Could be testing")
-        return true
+        if (e instanceof ReferenceError) {
+            return true
+        }
         
     }
 
@@ -32,10 +34,10 @@ function renderShowList(doc){
             e.stopPropagation();
             let showId = e.target.parentElement.getAttribute('data-id');
 
-        var newWindow = window.open("newTicket.html");
-        newWindow.showId = showId;
-    });
+            var newWindow = window.open("newTicket.html");
+            newWindow.newshowId = showId;
 
+        });
 }
 
 
@@ -57,11 +59,13 @@ function renderTicketList(doc){
          extraInfo   = document.createElement('div');
          editTicket  = document.createElement('spanner');
          li.setAttribute('data-id', doc.id);
-   } catch (error) {
-       console.log("Could be testing")
-       return true
-   }
 
+    } catch (e) {
+        console.log("Could be testing")
+        if (e instanceof ReferenceError) {
+        return true
+    }
+    }
     
     
         firstName.textContent = doc.data().firstName;
@@ -108,7 +112,11 @@ function renderTicketList(doc){
 
 }
 
-module.exports = {
-    renderTicketList: renderTicketList,
-    renderShowList: renderShowList
+try {
+    module.exports = {
+        renderTicketList: renderTicketList,
+        renderShowList: renderShowList
+    }
+} catch (error) {
+    console.log("Not in test env")
 }

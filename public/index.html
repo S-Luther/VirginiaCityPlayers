@@ -7,13 +7,23 @@
 <html>
 	<title>VCP Seat Planner</title>
 	<head>
-		<title>Untitled</title>
+		<title>Virginia City Players Seat Planner</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-amber.min.css" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+	
+		<script defer src="/__/firebase/8.2.1/firebase-app.js"></script>
+		<script defer src="/__/firebase/8.2.1/firebase-auth.js"></script>
+		<script defer src="/__/firebase/8.2.1/firebase-database.js"></script>
+		<script defer src="/__/firebase/8.2.1/firebase-storage.js"></script>
+		<script defer src="/__/firebase/init.js"></script>
+	
 	</head>
 	<body>
 
@@ -22,10 +32,10 @@
 				<div class="inner">
 					<nav>
 						<ul>
-							<li><a href="#intro">Create New Show</a></li>
+							<li><a href="#intro">Welcome User</a></li>
 							<li><a href="#one">User Guide</a></li>
 							<li><a href="#two">Developer Guide</a></li>
-							<li><a href="newTicket.html">Enter a Ticket</a></li>
+							<!-- <li><a href="newTicket.html">Enter a Ticket</a></li> -->
 						</ul>
 					</nav>
 				</div>
@@ -38,9 +48,9 @@
 					<section id="intro" class="wrapper style1 fullscreen fade-up">
 						<div class="inner">
 							<h1>Welcome USER</h1>
-							<p>Would you like to create a new Show entry or view an already create show?</p>
+							<p>Would you like to interact with a show or ticket?</p>
 							<ul class="actions">
-								<li><a href="newTicket.html" class="button scrolly">Enter Ticket</a></li><li><a href="showsList.html" class="button scrolly">View Shows</a></li>
+								<li><a href="newTicket.html" class="button scrolly">Tickets</a></li><li><a href="showsList.html" class="button scrolly">Shows</a></li>
 							</ul>
 						</div>
 					</section>
@@ -48,37 +58,49 @@
 				<!-- One -->
 					<section id="one" class="wrapper style2 spotlights">
 						<section>
-							<a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="center center" /></a>
+							<a href="#" class="image"><img src="SeatingChart.jpg" alt="" data-position="center center" /></a>
 							<div class="content">
 								<div class="inner">
-									<h2>Link to Database Test Page</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
+									<h2>Link to Seat Planner (Work in Progress)</h2>
+									<p>Here is a page not linked elsewhere but is a work in progress view of our plan for seat planning.</p>
 									<ul class="actions">
-										<li><a href="newTicket.html" class="button">Learn more</a></li>
+										<li><a href="SeatPlanner.html" class="button">Go to Seat Planner</a></li>
 									</ul>
 								</div>
 							</div>
 						</section>
 						<section>
-							<a href="#" class="image"><img src="images/pic02.jpg" alt="" data-position="top center" /></a>
+							<a href="#" class="image"><img src="images/viewShow.png" alt="" data-position="top center" /></a>
 							<div class="content">
 								<div class="inner">
-									<h2>Feugiat consequat</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
+									<h2>Interacting with Shows</h2>
+									<p>To view, add, delete, or edit shows click the link above or below.</p>
 									<ul class="actions">
-										<li><a href="#" class="button">Learn more</a></li>
+										<li><a href="showsList.html" class="button">Go To Shows Page</a></li>
 									</ul>
 								</div>
 							</div>
 						</section>
 						<section>
-							<a href="#" class="image"><img src="images/pic03.jpg" alt="" data-position="25% 25%" /></a>
+							<a href="#" class="image"><img src="images/viewTicket.png" alt="" data-position="top center" /></a>
 							<div class="content">
 								<div class="inner">
-									<h2>Ultricies aliquam</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
+									<h2>Interacting with Tickets</h2>
+									<p>To view, add, delete, or edit tickets click the link above or below.</p>
 									<ul class="actions">
-										<li><a href="#" class="button">Learn more</a></li>
+										<li><a href="#" class="button">Go To Tickets Page</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+						<section>
+							<a href="#" class="image"><img src="images/issue.png" alt="" data-position="25% 25%" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>Have an Issue?</h2>
+									<p>Please submit issues on our github so we can address any bugs you may encounter!</p>
+									<ul class="actions">
+										<li><a href="https://github.com/Quackbar/VirginiaCityPlayers/issues" class="button">Submit an Issue</a></li>
 									</ul>
 								</div>
 							</div>
@@ -88,48 +110,36 @@
 				<!-- Two -->
 					<section id="two" class="wrapper style3 fade-up">
 						<div class="inner">
-							<h2>Who we are</h2>
-							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
+							<h2>Who we are and How we're doing this</h2>
+							<p>This Project is being created by Caleb Hayes, Nick Zetterberg, and Sam Luther for the Virginia City Players.</p>
 							<div class="features">
 								<section>
-									<span class="icon major fa-code"></span>
-									<h3>Lorem ipsum amet</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+									<span class="icon major fa-github"></span>
+									<h3>Our Project Files live on github</h3>
+									<p>You can find our files here <a href="https://github.com/Quackbar/VirginiaCityPlayers">link</a></p>
 								</section>
 								<section>
-									<span class="icon major fa-lock"></span>
-									<h3>Aliquam sed nullam</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+									<span class="icon major fa-database"></span>
+									<h3>Our site is hosted and powered by Firebase</h3>
+									<p>Our databse, hosting and authentication are all part of our firebase integration.</p>
 								</section>
 								<section>
-									<span class="icon major fa-cog"></span>
-									<h3>Sed erat ullam corper</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+									<span class="icon major fa-area-chart"></span>
+									<h3>Our Projected Finish Time</h3>
+									<p>You can find our projected finish time for this project in the form of a burndown chart here <a href="https://docs.google.com/spreadsheets/d/1c6-g-2eQpSA3cADQ2ElCi3Qs3qSJTIhsx1yXBOEOqnk/edit?usp=sharing">link</a>.</p>
 								</section>
 								<section>
 									<span class="icon major fa-desktop"></span>
-									<h3>Veroeros quis lorem</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon major fa-chain"></span>
-									<h3>Urna quis bibendum</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon major fa-diamond"></span>
-									<h3>Aliquam urna dapibus</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+									<h3>Desktop Optimized</h3>
+									<p>Our site is visible and usable on all platforms but has been designed with desktop in mind.</p>
 								</section>
 							</div>
-							<ul class="actions">
-								<li><a href="#" class="button">Learn more</a></li>
-							</ul>
+
 						</div>
 					</section>
 
 				<!-- Three -->
-					<section id="three" class="wrapper style1 fade-up">
+					<!-- <section id="three" class="wrapper style1 fade-up">
 						<div class="inner">
 							<h2>Enter New Ticket</h2>
 							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
@@ -171,15 +181,31 @@
 								</section>
 							</div>
 						</div>
-					</section>
+					</section> -->
 
 			</div>
-
+			<div id="authModal" class="modal">
+				<div class="modal-content">
+				  <span class="close">&times;</span>
+				  <h3 id="caketopper">Login/SignUp</h3>
+				  <div class="userlogin-container">
+		  
+					  <section id="login-field">
+								  <div class="google-box" >
+						  <section id="google-login">
+							  <!-- <p>Sign in or sign up with your Google account below.</p> -->
+							  <!-- Button that handles sign-in/sign-out -->
+							  <button disabled class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" id="quickstart-sign-in"><i class="material-icons">account_circle</i> Sign in with Google</button>
+						  </section>
+					  </section>
+				  </div>
+				</div>
+			  </div>
 		<!-- Footer -->
 			<footer id="footer" class="wrapper style1-alt">
 				<div class="inner">
 					<ul class="menu">
-						<li>&copy; Untitled. All rights reserved.</li>
+						<li>&copy; Virginia City Players. All rights reserved.</li>
 					</ul>
 				</div>
 			</footer>
@@ -192,6 +218,7 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/login.js"></script>
 
 	</body>
 </html>

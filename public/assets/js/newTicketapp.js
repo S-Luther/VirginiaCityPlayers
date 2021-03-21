@@ -3,7 +3,7 @@ const db = firebase.firestore();
 const ticketList = document.querySelector('#ticket-list');
 const form = document.querySelector('#add-ticket-form');
 
-var newshowId = showId;
+var newshowId;
 
 
 //saving data
@@ -36,14 +36,13 @@ form.addEventListener('submit', (e) => {
 db.collection('test').where('showID', '==', newshowId).onSnapshot(snapshot => {
     let changes = snapshot.docChanges();
     changes.forEach(change => {
-        console.log(change.doc.data());
+        // console.log(change.doc.data());
         if(change.type == 'added'){
-            renderList(change.doc);
+            renderTicketList(change.doc);
         }else if (change.type == 'removed'){
             let li = ticketList.querySelector('[data-id=' + change.doc.id + ']');
             ticketList.removeChild(li);
         }
     });
 });
-
 
