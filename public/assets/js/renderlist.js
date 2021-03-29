@@ -59,7 +59,7 @@ function renderShowList(doc){
 //Retrieving Data from firestore
 //create element and render the list.
 function renderTicketList(doc){
-    let li, firstName, lastName, totalAttend, email, phoneNumber, cross, extraInfo, editTicket, assignSeat
+    let li, firstName, lastName, totalAttend, email, phoneNumber, cross, extraInfo, editTicket, assignSeat, Seat
     try {
          li          = document.createElement('li');
          firstName   = document.createElement('spanner');
@@ -71,6 +71,7 @@ function renderTicketList(doc){
          extraInfo   = document.createElement('div');
          editTicket  = document.createElement('spanner');
          assignSeat  = document.createElement('spanner');
+         Seat        = document.createElement('div');
          li.setAttribute('data-id', doc.id);
 
     } catch (e) {
@@ -90,6 +91,7 @@ function renderTicketList(doc){
         editTicket.textContent = 'EDIT';
         assignSeat.textContent = 'ASSIGN SEAT';
         extraInfo.textContent = 'Additional Info: '+ doc.data().extraInfo;
+        Seat.textContent = 'Seat: ' + doc.data().Seat;
 
 
         //Creating element from the render list.
@@ -103,6 +105,7 @@ function renderTicketList(doc){
         li.appendChild(assignSeat);
         li.appendChild(totalAttend);
         li.appendChild(extraInfo);
+        li.appendChild(Seat);
         ticketList.appendChild(li);
         //Updating the list
 
@@ -128,10 +131,11 @@ function renderTicketList(doc){
         assignSeat.addEventListener('click', (e) => {
             e.stopPropagation();
             let ticketId = e.target.parentElement.getAttribute('data-id');
-
+            var parentWindow = window.parent;
             var newWindow = window.open("seatAssign.html", "", "width=1000,height=700");
             newWindow.newticketId = ticketId;
             newWindow.newShowId = newshowId;
+            newWindow.parentWindow = parentWindow;
 
         });
 
