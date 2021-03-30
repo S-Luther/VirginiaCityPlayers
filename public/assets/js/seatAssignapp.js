@@ -11,7 +11,7 @@ function myFunction(id){
     }
 
 
-    db.collection('test').doc('newticketId').update({
+    db.collection('test').doc(newticketId).update({
         Seat: id
     });
 
