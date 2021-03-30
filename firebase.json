@@ -8,13 +8,9 @@
   },
 
   "hosting": {
-<<<<<<< HEAD
-    "site": "epicgamer69",
-=======
-    "site": "supercoolawesomewhatever",
->>>>>>> master
-    "public": "public"
+    "site": "epicgamer69"
   },
+  
   "emulators": {
     "firestore": {
       "port": 8080
