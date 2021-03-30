@@ -5,14 +5,8 @@ console.log("testing");
 
 db.collection('test').get().then((querySnapShot) => {
     querySnapShot.forEach((doc) => {
-        console.log(doc.data()['Seat']);
+        let seat = doc.get('Seat');
+        console.log(seat);
         //document.getElementById().style.fill = "red";
     });
 });
-
-
-
-
-
-
-
