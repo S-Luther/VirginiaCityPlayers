@@ -5,14 +5,11 @@ var newticketId;
 
 function myFunction(id){
     document.getElementById(id).style.fill = "red";
-    console.log("testadd");
-
 
     db.collection('test').doc(newticketId).update({
         Seat: id
     });
 
-    console.log("completeded");
 
     // parentWindow.renderTicketList(newticketId);
     //setTimeout('window.close()', 1000);
@@ -20,6 +17,8 @@ function myFunction(id){
     //SHOULD WORK BUT DOES NOT. '
     //SOMETHING WRONG WITH THE VARIABLE THATS BEING READ IN.
     parentWindow.renderTicketList(newticketId);
+
+
 }
 
 
