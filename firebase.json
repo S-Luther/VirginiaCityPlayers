@@ -8,7 +8,11 @@
   },
 
   "hosting": {
+<<<<<<< HEAD
     "site": "epicgamer69",
+=======
+    "site": "supercoolawesomewhatever",
+>>>>>>> master
     "public": "public"
   },
   "emulators": {
