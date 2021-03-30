@@ -10,19 +10,19 @@ function myFunction(id){
         document.getElementById(id).style.fill = "red";
     }
 
-    console.log("testadd");
 
     db.collection('test').doc('newticketId').update({
         Seat: id
     });
 
+    console.log("testadd");
 
     // parentWindow.renderTicketList(newticketId);
     //setTimeout('window.close()', 1000);
 
     //SHOULD WORK BUT DOES NOT. '
     //SOMETHING WRONG WITH THE VARIABLE THATS BEING READ IN.
-    parentWindow.renderTicketList(newticketId);
+    //parentWindow.renderTicketList(newticketId);
 
 
 }
