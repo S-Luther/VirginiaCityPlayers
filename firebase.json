@@ -8,7 +8,8 @@
   },
 
   "hosting": {
-    "site": "epicgamer69"
+    "site": "epicgamer69",
+    "public": "public"
   },
   
   "emulators": {
