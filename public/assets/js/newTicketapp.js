@@ -6,6 +6,11 @@ const form = document.querySelector('#add-ticket-form');
 var newshowId;
 
 
+
+//localStorage.setItem("loggedin", false);
+
+
+
 //saving data
 form.addEventListener('submit', (e) => {
     e.preventDefault();
