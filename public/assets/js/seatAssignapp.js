@@ -4,9 +4,13 @@ console.log("working");
 var newticketId;
 
 function myFunction(id){
-    document.getElementById(id).style.fill = "red";
-    console.log("testadd");
+    if(document.getElementById(id).style.fill === "red"){
+        document.getElementById(id).style.fill = "#FFFFFF";
+    } else {
+        document.getElementById(id).style.fill = "red";
+    }
 
+    console.log("testadd");
 
     db.collection('test').doc('newticketId').update({
         Seat: id

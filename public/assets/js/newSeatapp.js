@@ -1,20 +1,14 @@
 const db = firebase.firestore();
 
 
-console.log("working");
+console.log("testing");
 
-
-function myFunction(id){
-    document.getElementById(id).style.fill = "red";
-    console.log("testadd");
-    db.collection('test').add({
-        Seat: id
-        
+db.collection('test').get().then((querySnapShot) => {
+    querySnapShot.forEach((doc) => {
+        console.log(doc.id, " => ", doc.data());
     });
+});
 
-
-
-}
 
 
 
