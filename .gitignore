@@ -67,3 +67,4 @@ build/Release
 firebase.json
 
 firebase.json
+public/assets/js/logchecker.js
