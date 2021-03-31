@@ -137,7 +137,7 @@ function renderTicketList(doc){
             e.stopPropagation();
             let ticketId = e.target.parentElement.getAttribute('data-id');
             var parentWindow = window.parent;
-            var newWindow = window.open("seatAssign.html", "", "width=1000,height=700");
+            var newWindow = window.open("seatAssign.html", "", "width=1000,height=1000");
             newWindow.newticketId = ticketId;
             newWindow.newshowId = newshowId;
             newWindow.parentWindow = parentWindow;
