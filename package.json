@@ -18,5 +18,9 @@
   "homepage": "https://github.com/Quackbar/VirginiaCityPlayers#readme",
   "devDependencies": {
     "jasmine": "^3.6.4"
+  },
+  "dependencies": {
+    "print-js": "^1.6.0",
+    "uniq": "^1.0.1"
   }
 }

@@ -10,7 +10,8 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     db.collection('Shows').add({
         showName: form.showName.value,
-        showDate: form.showDate.value
+        showDate: form.showDate.value,
+        time: form.time.value
     
     });
    

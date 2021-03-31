@@ -40,6 +40,8 @@ function writeUserData(userId, name, email, imageUrl) {
                 });
                 localStorage.setItem("loggedin", true);
 
+        }else{
+            localStorage.setItem("loggedin", true);
         }
     });
     
@@ -90,7 +92,7 @@ function initApp() {
     // [START authstatelistener]
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-
+            localStorage.setItem("loggedin", true);
                 span.onclick = function() {
                     modal.style.display = "none";
                   }

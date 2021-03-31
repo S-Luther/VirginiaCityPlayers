@@ -19,8 +19,9 @@
         </script> 
         <script src="assets\js\newTicketapp.js" defer></script>
         <script src="assets\js\renderlist.js" defer></script>
-
-
+        <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+        <script src="https://printjs-4de6.kxcdn.com/print.min.css"></script>
+		<script src="./assets/js/logchecker.js" ></script>
 
 	</head>
 	<body>
@@ -34,7 +35,6 @@
 					<ul>
 						<li><a href="index.html">Home</a></li>
 						<li><a href="showsList.html">Shows</a></li>
-						<li><a href="newTicket.html" class="active">Ticket List</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -50,13 +50,14 @@
                             <section>
                                 <h3 class="form">Create a New Ticket</h3>
 								<!--Adding a new ticket-->
-                                <form id="add-ticket-form">
+                                <form id="add-ticket-form" style="text-align: center;">
                                     <input type="text" name="firstName" placeholder="First Name">
                                     <input type="text" name="lastName" placeholder="Last Name">
                                     <input type="text" name="phoneNumber" placeholder="Phone Number">
                                     <input type="email" name="email" placeholder="Email">
 									<input type="text" name="totalAttend" placeholder="Number of Attendees">
                                     <input type="text" name="extraInfo" rows="5" name="extraInfo" placeholder="Additonal Information"></textarea>
+									<br>
                                     <button> Submit Ticket</button>
                                 </form>
 
@@ -87,7 +88,15 @@
 					</ul>
 				</div>
 			</footer>
-
+			<div style="visibility: hidden;">
+			<div id="ticket">
+				<img src='images/ticket.jpeg'style='width: 6.5in;margin-bottom: -.9in; position: absolute; opacity: 1;z-index: 0;'/>
+				<p id="date" style=" position: absolute; float: left; margin-top: 1.65in; margin-left: 1.2in;z-index: 999999;color: black;">00/00/0000</p>
+				<p id="time" style=" position: absolute; float: left; margin-top: 1.65in; margin-left: 3.5in;z-index: 999999;color: black;">00:00</p>
+				<p id="row" style=" position: absolute; float: left; margin-top: 1.65in; margin-left: 4.8in;z-index: 999999;color: black;">A</p>
+				<p id="seat" style=" position: absolute; float: left; margin-top: 1.65in; margin-left: 6in;z-index: 999999;color: black;">1</p>
+			 </div>    
+			</div>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>

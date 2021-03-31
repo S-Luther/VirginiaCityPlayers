@@ -37,17 +37,21 @@ form.addEventListener('submit', (e) => {
 
 
 //real-time listener, keeps updating page if changes are made.
-
-db.collection('test').where('showID', '==', newshowId).onSnapshot(snapshot => {
-    let changes = snapshot.docChanges();
-    changes.forEach(change => {
-        // console.log(change.doc.data());
-        if(change.type == 'added'){
-            renderTicketList(change.doc);
-        }else if (change.type == 'removed'){
-            let li = ticketList.querySelector('[data-id=' + change.doc.id + ']');
-            ticketList.removeChild(li);
-        }
+try{
+    db.collection('test').where('showID', '==', newshowId).onSnapshot(snapshot => {
+        let changes = snapshot.docChanges();
+        changes.forEach(change => {
+            // console.log(change.doc.data());
+            if(change.type == 'added'){
+                renderTicketList(change.doc);
+            }else if (change.type == 'removed'){
+                let li = ticketList.querySelector('[data-id=' + change.doc.id + ']');
+                ticketList.removeChild(li);
+            }
+        });
     });
-});
+}catch(er){
+    alert("Error with loading tickets, returning to show list.")
+    window.location = "showsList.html"
+}
 

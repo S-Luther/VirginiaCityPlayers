@@ -157,10 +157,21 @@
 		cursor:  pointer;
 		background-color: rgba(255, 255, 255, 0.158);
 	}
+	li spanner:nth-child(8){
+		font-size: 16px;
+		position: relative;
+		padding-right: 0px;
+		float: right;
+		width:150px;
+		text-align: center;
+		font-weight:  bold;
+		cursor:  pointer;
+		background-color: rgba(255, 255, 255, 0.158);
+	}
 
 	
 
-	li spanner:nth-child(8){
+	li spanner:nth-child(9){
 		color: rgb(255, 255, 255);
 
 
@@ -1805,7 +1816,7 @@
 /* Type */
 
 	body, input, select, textarea {
-		color: rgba(255, 255, 255, 0.55);
+		color: #20313d;
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: 16.5pt;
 		font-weight: normal;
@@ -2309,7 +2320,7 @@ st7,
     st7.special,
     .st7.special {
         background-color: #ffffff;
-        color: #20313d !important;
+        color: 20313d !important;
     }
 
         input[type="submit"].special:after,
@@ -2657,7 +2668,7 @@ st7,
 		}
 
 	label {
-		color: #ffffff;
+		color: #20313d;
 		font-weight: bold;
 		line-height: 1.5;
 		margin: 0 0 0.7em 0;
@@ -2741,7 +2752,7 @@ st7,
 
 	select option {
 		background-color: #20313d;
-		color: #ffffff;
+		color: #20313d;
 	}
 
 	input[type="text"],
@@ -2835,27 +2846,27 @@ st7,
 	}
 
 	::-webkit-input-placeholder {
-		color: rgba(255, 255, 255, 0.35) !important;
+		color: rgb(0, 0, 0) !important;
 		opacity: 1.0;
 	}
 
 	:-moz-placeholder {
-		color: rgba(255, 255, 255, 0.35) !important;
+		color: rgb(0, 0, 0) !important;
 		opacity: 1.0;
 	}
 
 	::-moz-placeholder {
-		color: rgba(255, 255, 255, 0.35) !important;
+		color: rgb(0, 0, 0) !important;
 		opacity: 1.0;
 	}
 
 	:-ms-input-placeholder {
-		color: rgba(255, 255, 255, 0.35) !important;
+		color: rgb(0, 0, 0) !important;
 		opacity: 1.0;
 	}
 
 	.formerize-placeholder {
-		color: rgba(255, 255, 255, 0.35) !important;
+		color: rgb(0, 0, 0) !important;
 		opacity: 1.0;
 	}
 

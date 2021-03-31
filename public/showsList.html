@@ -19,6 +19,7 @@
         </script> 
         <script src="assets\js\app.js" defer></script>
         <script src="assets\js\renderlist.js" defer></script>
+		<script src="./assets/js/logchecker.js" ></script>
 
 
 
@@ -34,7 +35,6 @@
 					<ul>
 						<li><a href="index.html">Home</a></li>
 						<li><a href="showsList.html" class="active">Shows</a></li>
-						<li><a href="newTicket.html">Ticket List</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -50,9 +50,12 @@
                             <section>
                                 <h3 class="form">New Show</h3>
 								<!--Adding a new ticket-->
-                                <form id="add-show-form">
-                                    <input type="text" name="showName" placeholder="Name of show">
+                                <form id="add-show-form" style="text-align: center;">
+                                    <input type="text" name="showName" size="10" placeholder="Name of show">
+									<br>
 									<input type="date" name="showDate" placeholder="Date of show">
+									<input type="time" name="time" placeholder="Show time">
+									<br><br>
 									<button >Create New Show</button>
 								</form>
                                 <ul id="show-list">

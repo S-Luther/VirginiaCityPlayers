@@ -59,7 +59,7 @@ function renderShowList(doc){
 //Retrieving Data from firestore
 //create element and render the list.
 function renderTicketList(doc){
-    let li, firstName, lastName, totalAttend, email, phoneNumber, cross, extraInfo, editTicket, assignSeat, Seat
+    let li, firstName, lastName, totalAttend, email, phoneNumber, cross, extraInfo, editTicket, assignSeat, print, Seat
     try {
          li          = document.createElement('li');
          firstName   = document.createElement('spanner');
@@ -69,6 +69,7 @@ function renderTicketList(doc){
          phoneNumber = document.createElement('spanner');
          cross       = document.createElement('spanner');
          extraInfo   = document.createElement('div');
+         print       = document.createElement('spanner');
          editTicket  = document.createElement('spanner');
          assignSeat  = document.createElement('spanner');
          Seat        = document.createElement('div');
@@ -77,8 +78,8 @@ function renderTicketList(doc){
     } catch (e) {
         console.log("Could be testing")
         if (e instanceof ReferenceError) {
-        return true
-    }
+            return true
+        }
     }
     
     
@@ -90,6 +91,7 @@ function renderTicketList(doc){
         cross.textContent = 'X';
         editTicket.textContent = 'EDIT';
         assignSeat.textContent = 'ASSIGN SEAT';
+        print.textContent = 'PRINT';
         extraInfo.textContent = 'Additional Info: '+ doc.data().extraInfo;
         Seat.textContent = 'Seat: ' + doc.data().Seat;
 
@@ -103,6 +105,7 @@ function renderTicketList(doc){
         li.appendChild(cross);
         li.appendChild(editTicket);
         li.appendChild(assignSeat);
+        li.appendChild(print);
         li.appendChild(totalAttend);
         li.appendChild(extraInfo);
         li.appendChild(Seat);
@@ -136,6 +139,38 @@ function renderTicketList(doc){
             newWindow.newticketId = ticketId;
             newWindow.newShowId = newshowId;
             newWindow.parentWindow = parentWindow;
+
+        });
+
+        print.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            var show = doc.data().showID
+            var docRef = db.collection("Shows").doc(show);
+
+            docRef.get().then((showdata) => {
+                if (showdata.exists) {
+                    var date = document.getElementById("date");
+                    date.innerHTML = showdata.data().showDate;
+                    var time = document.getElementById("time");
+                    time.innerHTML = showdata.data().time;
+                    seat = doc.data().Seat
+                    pieces = seat.split("_")
+                    if(pieces.length < 4){
+                        var row = document.getElementById("row");
+                        row.innerHTML = pieces[2];
+                        var seat = document.getElementById("seat");
+                        seat.innerHTML = pieces[1];
+                    }else{
+                        alert("multiple tickets coming later");
+                    }
+                    printJS('ticket', 'html')
+                }else{
+                    alert("No such show")
+                }
+            })
+
+
 
         });
 
