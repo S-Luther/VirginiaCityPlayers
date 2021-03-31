@@ -137,7 +137,7 @@ function renderTicketList(doc){
             var parentWindow = window.parent;
             var newWindow = window.open("seatAssign.html", "", "width=1000,height=700");
             newWindow.newticketId = ticketId;
-            newWindow.newShowId = newshowId;
+            newWindow.newshowId = newshowId;
             newWindow.parentWindow = parentWindow;
 
         });

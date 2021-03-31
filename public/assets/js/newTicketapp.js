@@ -3,8 +3,17 @@ const db = firebase.firestore();
 const ticketList = document.querySelector('#ticket-list');
 const form = document.querySelector('#add-ticket-form');
 
-var newshowId;
 
+
+
+
+if(typeof newshowId == "undefined"){
+    newshowId = localStorage.getItem("newshowId")
+    console.log("No show ID")
+}else{
+    localStorage.setItem("newshowId", newshowId);
+    console.log("New show Id found")
+}
 
 
 //localStorage.setItem("loggedin", false);

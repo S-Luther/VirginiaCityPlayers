@@ -9,3 +9,6 @@ db.collection('test').where('showID', '==', newshowId).get().then((querySnapShot
         document.getElementById(seat).style.fill = "red";
     });
 });
+
+
+

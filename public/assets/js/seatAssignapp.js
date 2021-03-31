@@ -3,6 +3,14 @@ const db = firebase.firestore();
 console.log("working");
 var newticketId;
 
+db.collection('test').where('showID', '==', newshowId).get().then((querySnapShot) => {
+    querySnapShot.forEach((doc) => {
+        let seat = doc.get('Seat');
+        document.getElementById(seat).style.fill = "red";
+    });
+});
+
+
 function myFunction(id){
     if(document.getElementById(id).style.fill === "red"){
         document.getElementById(id).style.fill = "#FFFFFF";
@@ -15,14 +23,14 @@ function myFunction(id){
         Seat: id
     });
 
+    parentWindow.location.reload();
     console.log("testadd");
 
     // parentWindow.renderTicketList(newticketId);
     //setTimeout('window.close()', 1000);
 
-    //SHOULD WORK BUT DOES NOT. '
-    //SOMETHING WRONG WITH THE VARIABLE THATS BEING READ IN.
-    //parentWindow.renderTicketList(newticketId);
+    setTimeout('window.close()', 1000);
+    //
 
 
 }
