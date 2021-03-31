@@ -21,7 +21,7 @@ function renderShowList(doc){
 
 
         showName.textContent = doc.data().showName;
-        showDate.textContent = doc.data().showDate;
+        showDate.textContent = " on "+doc.data().showDate+" at "+doc.data().time;
         viewShow.textContent = 'View Seat Plan';
         enterTickets.textContent = 'Enter Tickets';
 

@@ -1815,8 +1815,15 @@
 
 /* Type */
 
-	body, input, select, textarea {
-		color: #727272;
+	body{
+		color: #ffffff;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 16.5pt;
+		font-weight: normal;
+		line-height: 1.75;
+	}
+	input, select, textarea {
+		color: #494949;
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: 16.5pt;
 		font-weight: normal;
@@ -2668,7 +2675,7 @@ st7,
 		}
 
 	label {
-		color: #4b606e;
+		color: #20313d;
 		font-weight: bold;
 		line-height: 1.5;
 		margin: 0 0 0.7em 0;
