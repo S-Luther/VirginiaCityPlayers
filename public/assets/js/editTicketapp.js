@@ -32,7 +32,9 @@ form.addEventListener('submit', (e) => {
         totalAttend: form.totalAttend.value,
         extraInfo: form.extraInfo.value
     });
+    parentWindow.location.reload();
 
+    setTimeout('window.close()', 1000);
 
     console.log("completed")
    

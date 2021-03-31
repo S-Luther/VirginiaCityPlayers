@@ -124,9 +124,11 @@ function renderTicketList(doc){
         editTicket.addEventListener('click', (e) => {
             e.stopPropagation();
             let ticketId = e.target.parentElement.getAttribute('data-id');
+            var parentWindow = window.parent;
 
             var newWindow = window.open("editTicket.html", "", "width=1000,height=700");
             newWindow.newticketId = ticketId;
+            newWindow.parentWindow = parentWindow;
 
         });
 
