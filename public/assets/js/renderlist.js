@@ -8,6 +8,8 @@ function renderShowList(doc){
          showDate = document.createElement('spanner');
          enterTickets = document.createElement('spanners'); 
          viewShow = document.createElement('spanners'); 
+         cross    = document.createElement('spanners');
+
 
         li.setAttribute('data-id', doc.id);
 
@@ -22,6 +24,7 @@ function renderShowList(doc){
 
         showName.textContent = doc.data().showName;
         showDate.textContent = " on "+doc.data().showDate+" at "+doc.data().time;
+        cross.textContent = 'X';
         viewShow.textContent = 'View Seat Plan';
         enterTickets.textContent = 'Enter Tickets';
 
@@ -29,6 +32,7 @@ function renderShowList(doc){
         //updating the list of objects.
         li.appendChild(showName);
         li.appendChild(showDate);
+        li.appendChild(cross);
         li.appendChild(enterTickets);
         li.appendChild(viewShow);
         showList.appendChild(li);
@@ -48,6 +52,21 @@ function renderShowList(doc){
 
             var newWindow = window.open("SeatPlanner.html");
             newWindow.newshowId = showId;
+
+        });
+
+        cross.addEventListener('click', (e) => {
+            var con = confirm("Are you sure you want to delete this show and all tickets?");
+
+            if (con == true){
+                e.stopPropagation();
+                let id = e.target.parentElement.getAttribute('data-id');
+                db.collection('Shows').doc(id).delete();
+
+
+                db.collection('test').delete().where('showID', '==', String(id));
+
+            }
 
         });
 }
@@ -115,9 +134,15 @@ function renderTicketList(doc){
 
         //Deleting Data
         cross.addEventListener('click', (e) => {
-            e.stopPropagation();
-            let id = e.target.parentElement.getAttribute('data-id');
-            db.collection('test').doc(id).delete();
+            var con = confirm("Are you sure you want to delete this ticket?");
+
+            if (con == true){
+                e.stopPropagation();
+                let id = e.target.parentElement.getAttribute('data-id');
+                db.collection('test').doc(id).delete();
+                console.log("working");
+
+            }
 
         });
 
