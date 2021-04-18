@@ -41,16 +41,21 @@ function renderShowList(doc){
         enterTickets.addEventListener('click', (e) => {
             e.stopPropagation();
             let showId = e.target.parentElement.getAttribute('data-id');
+            let showName = doc.data().showName;
 
             var newWindow = window.open("newTicket.html");
             newWindow.newshowId = showId;
+            newWindow.showName = showName;
 
         });
+
         viewShow.addEventListener('click', (e) => {
             e.stopPropagation();
             let showId = e.target.parentElement.getAttribute('data-id');
+            let showName = doc.data().showName;
 
             var newWindow = window.open("SeatPlanner.html");
+            newWindow.showName = showName;
             newWindow.newshowId = showId;
 
         });
@@ -152,6 +157,7 @@ function renderTicketList(doc){
             var parentWindow = window.parent;
 
             var newWindow = window.open("editTicket.html", "", "width=1000,height=700");
+            
             newWindow.newticketId = ticketId;
             newWindow.parentWindow = parentWindow;
 

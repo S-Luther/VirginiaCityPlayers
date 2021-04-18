@@ -4,6 +4,7 @@ const form = document.querySelector('#edit-ticket-form');
 
 var newticketId;
 
+
 //Another issue is currently you cannot close the window aafter editing the information.
 
 //saving data

@@ -68,6 +68,11 @@
 
 	}
 
+	h1{
+		position: relative;
+		text-align: center;
+	}
+
 	#show-list li{
 		list-style-type: alternate;
 		display: block;
