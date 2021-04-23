@@ -42,3 +42,5 @@ Make sure youre destination is correct within the firebase.json file. It should 
 If you'd like to deploy to a testing endpoint you may change the "site" to one of the projects other domains.
 
 That should be all! Happy Hacking!
+
+For more trouble shooting resources chakout the docs at https://firebase.google.com/ or https://www.npmjs.com/get-npm
