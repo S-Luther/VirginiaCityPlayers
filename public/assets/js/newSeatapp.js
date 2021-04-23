@@ -1,4 +1,11 @@
 const db = firebase.firestore();
+const showTitle = document.querySelector('#show-name');
+var showName;
+
+
+
+showTitle.append("Viewing Show: " + showName);
+
 
 
 console.log("testing");

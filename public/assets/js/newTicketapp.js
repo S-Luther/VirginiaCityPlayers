@@ -2,19 +2,22 @@
 const db = firebase.firestore();
 const ticketList = document.querySelector('#ticket-list');
 const form = document.querySelector('#add-ticket-form');
-
-
+const showTitle = document.querySelector('#show-name');
+var showName;
 
 
 
 if(typeof newshowId == "undefined"){
     newshowId = localStorage.getItem("newshowId")
+    showName = localStorage.getItem("showName")
     console.log("No show ID")
 }else{
     localStorage.setItem("newshowId", newshowId);
+    localStorage.setItem("showName", showName);
     console.log("New show Id found")
 }
 
+showTitle.append("Editing Tickets for " + showName);
 
 //localStorage.setItem("loggedin", false);
 

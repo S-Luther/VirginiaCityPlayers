@@ -68,6 +68,11 @@
 
 	}
 
+	h1{
+		position: relative;
+		text-align: center;
+	}
+
 	#show-list li{
 		list-style-type: alternate;
 		display: block;
@@ -101,6 +106,21 @@
 		font-weight:  bold;
 		cursor:  pointer;
 		background-color: rgba(255, 255, 255, 0.158);	
+
+	}
+
+	li spanners:nth-child(3){
+		color: rgb(255, 255, 255);
+		font-size: 32px;
+		position: relative;
+		padding-right: 0px;
+		float: right;
+		width: 50px;
+		text-align: center;
+		font-weight:  bold;
+		cursor:  pointer;
+		background-color: rgba(255, 255, 255, 0.158);	
+
 	}
 
 	li spanner:nth-child(3){
