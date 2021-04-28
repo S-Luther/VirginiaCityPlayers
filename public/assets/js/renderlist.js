@@ -8,6 +8,7 @@ function renderShowList(doc){
          showDate = document.createElement('spanner');
          enterTickets = document.createElement('spanners'); 
          viewShow = document.createElement('spanners'); 
+         print    = document.createElement('spanners');
          cross    = document.createElement('spanners');
 
 
@@ -24,16 +25,19 @@ function renderShowList(doc){
 
         showName.textContent = doc.data().showName;
         showDate.textContent = " on "+doc.data().showDate+" at "+doc.data().time;
+        print.textContent = 'Print';
         cross.textContent = 'X';
         viewShow.textContent = 'View Seat Plan';
         enterTickets.textContent = 'Enter Tickets';
 
         //Creating element from the render list.
         //updating the list of objects.
+        
         li.appendChild(showName);
         li.appendChild(showDate);
         li.appendChild(cross);
         li.appendChild(enterTickets);
+        li.appendChild(print);
         li.appendChild(viewShow);
         showList.appendChild(li);
 
@@ -73,6 +77,48 @@ function renderShowList(doc){
 
             }
 
+        });
+
+        print.addEventListener('click', (e) => {
+
+            let id = e.target.parentElement.getAttribute('data-id');
+            console.log(id)
+            var docRef = db.collection("Shows").doc(id);
+            docRef.get().then((showdata) => {
+                var date = showdata.data().showDate;
+                var time = showdata.data().time;
+                var row = ""
+                var seat = ""
+
+                var holder = document.getElementById("tickets");
+                db.collection("test")
+                    .where("showID", "==", id)
+                    .get()
+                    .then(snap => {
+                        snap.forEach(doc => {
+                            console.log("hi")
+                            var place = doc.data().Seat
+                            var pieces = place.split("_")
+                            if(pieces.length < 4){
+                                row =  pieces[2];
+                                seat =  pieces[1];
+                                var ticket = "<div id=\"ticket\" style=\"position: relative; width: 6.5in;height: 2.25in;\"><img src=\'images/ticket.jpeg\'style=\'width: 6.5in;margin-bottom: -.9in; position: absolute; opacity: 1;z-index: 0;\'/><p id=\"\" style=\" position: absolute; float: left; margin-top: 1.65in; margin-left: 1.2in;z-index: 999999;color: black;\">"+date+"</p><p style=\" position: absolute; float: left; margin-top: 1.65in; margin-left: 3.5in;z-index: 999999;color: black;\">"+time+"</p><p style=\" position: absolute; float: left; margin-top: 1.65in; margin-left: 4.8in;z-index: 999999;color: black;\">"+row+"</p><p style=\" position: absolute; float: left; margin-top: 1.65in; margin-left: 6in;z-index: 999999;color: black;\">"+seat+"</p></div>"
+                                holder.innerHTML = holder.innerHTML+ticket
+                                console.log(ticket)
+
+                            }else{
+                                alert("multiple tickets coming later");
+                            }
+                            
+
+                        });
+                        printJS('tickets', 'html')
+                    }).catch(err => {
+                        alert(err)
+                    })
+                    
+            });
+            
         });
 }
 
