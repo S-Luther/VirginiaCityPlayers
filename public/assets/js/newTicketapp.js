@@ -6,7 +6,9 @@ const showTitle = document.querySelector('#show-name');
 var showName;
 
 
-
+//Checking if there is a show selected to save whatever the last show opened was.
+//If no show is found in local storage then it makes whatever showId that currently exists
+//The new locally stored Id.
 if(typeof newshowId == "undefined"){
     newshowId = localStorage.getItem("newshowId")
     showName = localStorage.getItem("showName")
@@ -17,13 +19,11 @@ if(typeof newshowId == "undefined"){
     console.log("New show Id found")
 }
 
+//Creating the title for the page using the name of the show currently editing.
 showTitle.append("Editing Tickets for " + showName);
 
-//localStorage.setItem("loggedin", false);
 
-
-
-//saving data
+//Storing data within the firestore database.
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     db.collection('test').add({
@@ -36,7 +36,7 @@ form.addEventListener('submit', (e) => {
         extraInfo: form.extraInfo.value
     });
    
-    
+    //clearing the entry values after completing a ticket.
     form.firstName.value = '';
     form.lastName.value = '';
     form.phoneNumber.value = '';

@@ -1,7 +1,12 @@
+//Renderlist is used throught the program to render ticket and show items that are interactable.
 
 
 function renderShowList(doc){
     let li, showName, showDate, enterTickets, viewShow
+
+
+    //Try catch to error out if render list fails to render a ticket
+    //Render list creating css elements for show items
     try {
          li = document.createElement('li');
          showName = document.createElement('spanner');
@@ -10,8 +15,6 @@ function renderShowList(doc){
          viewShow = document.createElement('spanners'); 
          print    = document.createElement('spanners');
          cross    = document.createElement('spanners');
-
-
         li.setAttribute('data-id', doc.id);
 
     } catch (e) {
@@ -21,7 +24,7 @@ function renderShowList(doc){
         }
         
     }
-
+        //Asisgning those elements values.
 
         showName.textContent = doc.data().showName;
         showDate.textContent = " on "+doc.data().showDate+" at "+doc.data().time;
@@ -42,6 +45,8 @@ function renderShowList(doc){
         showList.appendChild(li);
 
 
+
+        //Enter tickets button
         enterTickets.addEventListener('click', (e) => {
             e.stopPropagation();
             let showId = e.target.parentElement.getAttribute('data-id');
@@ -53,6 +58,12 @@ function renderShowList(doc){
 
         });
 
+
+        //all of these buttons carry over multiple values to the new windo
+        //Used to identify which show or which ticket is being edited.
+
+
+        //View show ticket
         viewShow.addEventListener('click', (e) => {
             e.stopPropagation();
             let showId = e.target.parentElement.getAttribute('data-id');
@@ -63,7 +74,8 @@ function renderShowList(doc){
             newWindow.newshowId = showId;
 
         });
-
+        
+        //Delete Show ticket.
         cross.addEventListener('click', (e) => {
             var con = confirm("Are you sure you want to delete this show and all tickets?");
 
@@ -128,6 +140,7 @@ function renderShowList(doc){
 //For use on newTicket.html page
 //Retrieving Data from firestore
 //create element and render the list.
+
 function renderTicketList(doc){
     let li, firstName, lastName, totalAttend, email, phoneNumber, cross, extraInfo, editTicket, assignSeat, print, Seat
     try {
@@ -152,7 +165,9 @@ function renderTicketList(doc){
         }
     }
     
-    
+        //assigning values to the elements.
+
+
         firstName.textContent = doc.data().firstName;
         lastName.textContent = doc.data().lastName;
         totalAttend.textContent = "# of tickets: " + doc.data().totalAttend;
@@ -197,6 +212,11 @@ function renderTicketList(doc){
 
         });
 
+
+        //all of these buttons carry over multiple values to the new windo
+        //Used to identify which show or which ticket is being edited.
+
+        //create edit ticket button
         editTicket.addEventListener('click', (e) => {
             e.stopPropagation();
             let ticketId = e.target.parentElement.getAttribute('data-id');
@@ -210,6 +230,7 @@ function renderTicketList(doc){
         });
 
         
+        //Create seat assign button 
         assignSeat.addEventListener('click', (e) => {
             e.stopPropagation();
             let ticketId = e.target.parentElement.getAttribute('data-id');
